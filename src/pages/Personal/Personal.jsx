@@ -7,7 +7,6 @@ import {
   personal__img,
   personal__timeline,
   vertical__img,
-  active
 } from "./Personal.module.css";
 
 const Personal = () => {
@@ -38,11 +37,11 @@ const Personal = () => {
           <div
             key={img.id}
             className={
-              img.id % 3 == 0 || img.id % 4 == 0
-                ? big__img
-                : img.id % 5 == 0 || img.id % 7
+              img.id % 3 == 0
                 ? vertical__img
-                : horizontal__img
+                : img.id % 2 == 0
+                ? horizontal__img
+                : big__img
             }
           >
             <img src={img.imgUrl} alt="image" />
