@@ -2,6 +2,14 @@
 /* 
 font-family: 'Philosopher', sans-serif;
 font-family: 'Quicksand', sans-serif; */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 img {
   display: inline-block;
   max-width: 100%;
@@ -10,18 +18,22 @@ img {
 }
 
 .personal {
-  font-size: 2rem;
-  display: flex;
+  font-size: 1.6rem;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-content: center;
+  align-items: center;
 }
 
 .personal__img {
-  flex-basis: 100%;
+  grid-column: span 6;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  grid-auto-rows: 200px;
-  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: minmax(50px, 120px);
+  grid-gap: 1rem;
   grid-auto-flow: dense;
-  flex-basis: 80%;
+  padding: 1rem;
+  backdrop-filter: blur(8px);
 
   @media (max-width: 500px) {
     & {
@@ -45,7 +57,11 @@ img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 10px;
+  }
+
+  .vertical__img {
+    grid-row: span 2;
   }
 
   .horizontal__img {
@@ -59,5 +75,17 @@ img {
 }
 
 .personal__timeline {
-  flex-basis: 20%;
+  height: 100%;
+  display: flex;
+  padding: 2rem;
+  color: #d4a024;
+  grid-column: span 1;
+  backdrop-filter: blur(8px);
+  border-left: 2px solid #d4a024;
+  ul {
+    list-style-type: none;
+  }
+  .active {
+    color: red;
+  }
 }
