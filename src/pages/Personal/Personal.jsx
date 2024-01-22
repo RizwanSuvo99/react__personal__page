@@ -13,13 +13,11 @@ import {
 
 const Personal = () => {
   const [imgData, setImgData] = useState(imageGallery);
-  const [isActive, setIsActive] = useState(false);
   const [isYear, setIsYear] = useState("");
 
   const handleYear = (year) => {
     const filteredImg = imageGallery.filter((img) => img.yearClicked == year);
     setImgData(filteredImg);
-    setIsActive(!isActive);
     setIsYear(year);
   };
 
@@ -71,7 +69,6 @@ const Personal = () => {
           {yearArr.map((year) => (
             <li
               key={year}
-              className={isActive ? "active" : ""}
               onClick={() => handleYear(year)}
             >
               {year}
