@@ -30,9 +30,19 @@ img {
 
 .personal__img {
   grid-column: span 6;
+  padding-block: 2rem;
+}
+
+.personal__heading {
+  color: #fff;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.personal__img__container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  grid-auto-rows: 140px;
+  grid-auto-rows: 150px;
   grid-gap: 20px;
   grid-auto-flow: dense;
   padding: 1rem;
@@ -58,12 +68,15 @@ img {
     position: relative;
     text-align: center;
     font-size: 1.4rem;
+    overflow: hidden;
+    cursor: pointer;
   }
 
-  div > img {
+  div img {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
+    transition: 0.4s all ease;
   }
 
   div p {
@@ -74,11 +87,12 @@ img {
     left: 0;
     scale: 0;
     padding: 1rem;
-    transition: .6s scale ease;
-    background-color: rgba(0, 0, 0, 0.2);
+    transition: 0.5s scale ease;
+    /* background-color: rgba(0, 0, 0, 0.3); */
     color: #fff;
     border-radius: 10px;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(1px);
+    /* backdrop-filter: blur(5px); */
   }
 
   div:hover p {
@@ -86,6 +100,11 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  div:hover img {
+    scale: 1.2;
+    border-radius: 5px;
   }
 
   .vertical__img {
@@ -106,10 +125,10 @@ img {
   height: 100%;
   display: flex;
   padding: 2rem;
-  color: yellow;
+  color: #fbb900;
   grid-column: span 1;
   backdrop-filter: blur(8px);
-  border-left: 2px solid yellow;
+  border-left: 2px solid #fbb900;
   font-size: 1.8rem;
 
   ul {
@@ -127,15 +146,12 @@ img {
       cursor: pointer;
       margin-bottom: 1rem;
     }
-    & li .active {
-      color: red;
-    }
     & > li::before {
       content: "";
       height: 1rem;
       width: 1rem;
       border-radius: 50%;
-      background-color: yellow;
+      background-color: #fbb900;
       position: absolute;
       left: -2.6rem;
     }

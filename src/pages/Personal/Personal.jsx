@@ -4,7 +4,9 @@ import {
   big__img,
   horizontal__img,
   personal,
+  personal__heading,
   personal__img,
+  personal__img__container,
   personal__timeline,
   vertical__img,
 } from "./Personal.module.css";
@@ -12,11 +14,13 @@ import {
 const Personal = () => {
   const [imgData, setImgData] = useState(imageGallery);
   const [isActive, setIsActive] = useState(false);
+  const [isYear, setIsYear] = useState("");
 
   const handleYear = (year) => {
     const filteredImg = imageGallery.filter((img) => img.yearClicked == year);
     setImgData(filteredImg);
     setIsActive(!isActive);
+    setIsYear(year);
   };
 
   const yearArr = [];
@@ -41,21 +45,26 @@ const Personal = () => {
   return (
     <section className={personal} style={bgImg}>
       <div className={personal__img}>
-        {imgData.map((img, index) => (
-          <div
-            key={img.id}
-            className={
-              index % 5 == 0
-                ? big__img
-                : index % 2 == 0
-                ? vertical__img
-                : horizontal__img
-            }
-          >
-            <img src={img.imgUrl} alt="image" />
-            <p>{img.imgDetails}</p>
-          </div>
-        ))}
+        <div className={personal__heading}>
+          <h1>Image Gallery {isYear}</h1>
+        </div>
+        <div className={personal__img__container}>
+          {imgData.map((img, index) => (
+            <div
+              key={img.id}
+              className={
+                index % 5 == 0
+                  ? big__img
+                  : index % 2 == 0
+                  ? vertical__img
+                  : horizontal__img
+              }
+            >
+              <img src={img.imgUrl} alt="image" />
+              <p>{img.imgDetails}</p>
+            </div>
+          ))}
+        </div>
       </div>
       <div className={personal__timeline}>
         <ul>
