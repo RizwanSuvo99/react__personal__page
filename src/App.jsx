@@ -1,5 +1,11 @@
+import Personal from "./pages/Personal/Personal";
+
 function App() {
-  return <></>;
+  return (
+    <>
+      <Personal />
+    </>
+  );
 }
 
 export default App;
