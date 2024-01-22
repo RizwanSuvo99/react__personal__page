@@ -10,15 +10,22 @@ import {
 } from "./Personal.module.css";
 
 const Personal = () => {
-  const [isYear, setIsYear] = useState(0);
+  const [imgData, setImgData] = useState(imageGallery);
+  const [isActive, setIsActive] = useState(false);
 
-  const imgData = imageGallery;
+  const handleYear = (year) => {
+    const filteredImg = imageGallery.filter((img) => img.yearClicked == year);
+    setImgData(filteredImg);
+    setIsActive(!isActive);
+  };
+
   const yearArr = [];
   imageGallery.map((img) => {
     if (!yearArr.includes(img.yearClicked)) {
       yearArr.push(img.yearClicked);
     }
   });
+  yearArr.sort((a, b) => b - a);
 
   const bgImg = {
     width: "100%",
@@ -27,31 +34,37 @@ const Personal = () => {
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     backgroundPosition: "center",
+    backgroundColor: "rgba(0,0,0,0.5)",
+    backgroundBlendMode: "overlay",
   };
 
-  console.log(imgData);
   return (
     <section className={personal} style={bgImg}>
       <div className={personal__img}>
-        {imgData.map((img) => (
+        {imgData.map((img, index) => (
           <div
             key={img.id}
             className={
-              img.id % 3 == 0
+              index % 5 == 0
+                ? big__img
+                : index % 2 == 0
                 ? vertical__img
-                : img.id % 2 == 0
-                ? horizontal__img
-                : big__img
+                : horizontal__img
             }
           >
             <img src={img.imgUrl} alt="image" />
+            <p>{img.imgDetails}</p>
           </div>
         ))}
       </div>
       <div className={personal__timeline}>
         <ul>
           {yearArr.map((year) => (
-            <li key={year} className={isYear && "active"}>
+            <li
+              key={year}
+              className={isActive ? "active" : ""}
+              onClick={() => handleYear(year)}
+            >
               {year}
             </li>
           ))}
