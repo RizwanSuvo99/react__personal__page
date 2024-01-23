@@ -251,4 +251,22 @@ export const imageGallery = [
     yearClicked: 2013,
     imgDetails: "Vibrant market with street vendors and lively colors.",
   },
+  {
+    id: 43,
+    imgUrl: "https://picsum.photos/200/300?random=43",
+    yearClicked: 2014,
+    imgDetails: "Urban skyline at night with city lights.",
+  },
+  {
+    id: 44,
+    imgUrl: "https://picsum.photos/200/300?random=44",
+    yearClicked: 2012,
+    imgDetails: "Charming village nestled in the countryside.",
+  },
+  {
+    id: 45,
+    imgUrl: "https://picsum.photos/200/300?random=45",
+    yearClicked: 2013,
+    imgDetails: "Vibrant market with street vendors and lively colors.",
+  },
 ];

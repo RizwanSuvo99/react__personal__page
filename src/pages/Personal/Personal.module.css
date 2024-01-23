@@ -38,12 +38,17 @@ img {
   color: #fff;
   text-align: center;
   font-size: 2rem;
+  @media (max-width: 500px){
+    &{
+      font-size: 1.5rem;
+    }
+  }
 }
 
 .personal__img__container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  grid-auto-rows: 150px;
+  grid-auto-rows: 130px;
   grid-gap: 20px;
   grid-auto-flow: dense;
   padding: 2rem;
@@ -52,6 +57,8 @@ img {
   @media (max-width: 500px) {
     & {
       grid-template-columns: 1fr;
+      grid-auto-rows: 120px;
+      padding: 1rem;
     }
 
     & div {
@@ -129,6 +136,12 @@ img {
   border-left: 2px solid #fbb900;
   font-size: 1.8rem;
 
+  @media (max-width: 500px) {
+    & {
+      padding: 1rem;
+    }
+  }
+
   ul {
     list-style-type: none;
     position: relative;
@@ -152,6 +165,13 @@ img {
       background-color: #fbb900;
       position: absolute;
       left: -2.6rem;
+      
     }
+  }
+}
+
+@media (max-width: 500px) {
+  .personal__timeline ul > li::before {
+    left: -1.6rem;
   }
 }
