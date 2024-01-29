@@ -26,6 +26,7 @@ const Personal = () => {
     }
   });
   yearArr.sort((a, b) => b - a);
+  
 
   const bgImg = {
     width: "100%",
