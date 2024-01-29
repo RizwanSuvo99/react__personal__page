@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { imageGallery } from "../../utils/imageData";
 import {
-  big__img,
-  horizontal__img,
   personal,
   personal__heading,
   personal__img,
   personal__img__container,
   personal__timeline,
-  vertical__img,
 } from "./Personal.module.css";
+import { Image } from "antd";
 
 const Personal = () => {
   const [imgData, setImgData] = useState(imageGallery);
@@ -46,31 +44,29 @@ const Personal = () => {
         <div className={personal__heading}>
           <h1>Image Gallery {isYear}</h1>
         </div>
-        <div className={personal__img__container}>
-          {imgData.map((img, index) => (
-            <div
-              key={img.id}
-              className={
-                index % 5 == 0
-                  ? big__img
-                  : index % 2 == 0
-                  ? vertical__img
-                  : horizontal__img
-              }
-            >
-              <img src={img.imgUrl} alt="image" />
-              <p>{img.imgDetails}</p>
-            </div>
-          ))}
-        </div>
+        <Image.PreviewGroup>
+          <div className={personal__img__container}>
+            {imgData.map((img) => (
+              <div key={img.id}>
+                <Image
+                  height={`${
+                    Math.floor(Math.random() * (500 - 200 + 1)) + 200
+                  }px`}
+                  src={img.imgUrl}
+                  preview={{
+                    src: img.imgUrl,
+                  }}
+                  alt={img.imgDetails}
+                />
+              </div>
+            ))}
+          </div>
+        </Image.PreviewGroup>
       </div>
       <div className={personal__timeline}>
         <ul>
           {yearArr.map((year) => (
-            <li
-              key={year}
-              onClick={() => handleYear(year)}
-            >
+            <li key={year} onClick={() => handleYear(year)}>
               {year}
             </li>
           ))}
