@@ -68,10 +68,10 @@ const Personal = () => {
             </div>
           </Image.PreviewGroup>
         ) : (
-          <div className={personal__story} onClick={handleGalleryClick}>
+          <div className={personal__story}>
             <div>
               <h4>{selectedYear.storyLines}</h4>
-              <button>Explore Gallery</button>
+              <button onClick={handleGalleryClick}>Explore Gallery</button>
             </div>
           </div>
         )}
