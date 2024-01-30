@@ -6,26 +6,22 @@ import {
   personal__img,
   personal__img__container,
   personal__timeline,
+  personal__stories,
 } from "./Personal.module.css";
 import { Image } from "antd";
+import yearArr from "../../utils/yearArr";
 
 const Personal = () => {
-  const [imgData, setImgData] = useState(imageGallery);
-  const [isYear, setIsYear] = useState("");
+  const [imgData, setImgData] = useState(
+    imageGallery.filter((images) => images.yearClicked === yearArr[0])
+  );
+  const [isYear, setIsYear] = useState(yearArr[0]);
 
   const handleYear = (year) => {
     const filteredImg = imageGallery.filter((img) => img.yearClicked == year);
     setImgData(filteredImg);
     setIsYear(year);
   };
-
-  const yearArr = [];
-  imageGallery.map((img) => {
-    if (!yearArr.includes(img.yearClicked)) {
-      yearArr.push(img.yearClicked);
-    }
-  });
-  yearArr.sort((a, b) => b - a);
 
   const bgImg = {
     width: "100%",
@@ -43,6 +39,11 @@ const Personal = () => {
       <div className={personal__img}>
         <div className={personal__heading}>
           <h1>Image Gallery {isYear}</h1>
+        </div>
+        <div>
+          <div className={personal__stories}>
+            <h5></h5>
+          </div>
         </div>
         <Image.PreviewGroup>
           <div className={personal__img__container}>
