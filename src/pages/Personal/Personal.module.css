@@ -34,6 +34,8 @@ img {
 
 .personal__img {
   grid-column: span 6;
+  backdrop-filter: blur(10px);
+  min-height: 100vh;
 }
 
 .personal__heading {
@@ -52,11 +54,46 @@ img {
   }
 }
 
+.personal__story {
+  backdrop-filter: blur(10px);
+  div {
+    background-color: #242831;
+    color: #e9b722;
+    font-size: 2rem;
+    padding: 4rem 4rem 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    margin: 0 auto;
+    border-radius: 1rem;
+  }
+  button {
+    margin-top: 2rem;
+    border: none;
+    outline: none;
+    display: block;
+    font-size: 1.4rem;
+    border-radius: 2rem;
+    padding: 1rem 4rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: 0.3s all ease;
+    &:hover {
+      transform: translateY(-5px);
+      color: #fff;
+      background-color: transparent;
+      border: 2px solid #fff;
+    }
+  }
+}
+
 .personal__img__container {
   max-width: 1550px;
   columns: 4;
   column-gap: 10px;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   margin-inline: auto;
   padding-bottom: 2rem;
   @media (max-width: 1850px) {
@@ -124,7 +161,7 @@ img {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.4);
     color: #fff;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     transition: 0.6s all ease-out;
   }
 
@@ -139,7 +176,7 @@ img {
   padding: 2rem;
   color: #fbb900;
   grid-column: span 1;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   border-left: 2px solid #fbb900;
   font-size: 1.8rem;
 
