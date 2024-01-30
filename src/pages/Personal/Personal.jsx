@@ -24,7 +24,6 @@ const Personal = () => {
 
   const bgImg = {
     width: "100%",
-    minHeight: "100vh",
     backgroundImage: `url(${imgData[0].imgUrl})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -45,7 +44,7 @@ const Personal = () => {
               <div key={img.id}>
                 <Image
                   height={`${
-                    Math.floor(Math.random() * (500 - 200 + 1)) + 200
+                    Math.floor(Math.random() * (500 - 250 + 1)) + 250
                   }px`}
                   src={img.imgUrl}
                   preview={{
