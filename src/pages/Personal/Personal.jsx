@@ -26,7 +26,6 @@ const Personal = () => {
     }
   });
   yearArr.sort((a, b) => b - a);
-  
 
   const bgImg = {
     width: "100%",
@@ -59,6 +58,7 @@ const Personal = () => {
                   }}
                   alt={img.imgDetails}
                 />
+                <p style={{ pointerEvents: "none" }}>{img.imgDetails}</p>
               </div>
             ))}
           </div>
