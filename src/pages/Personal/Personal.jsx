@@ -6,7 +6,6 @@ import {
   personal__img,
   personal__img__container,
   personal__timeline,
-  personal__stories,
 } from "./Personal.module.css";
 import { Image } from "antd";
 import yearArr from "../../utils/yearArr";
@@ -39,11 +38,6 @@ const Personal = () => {
       <div className={personal__img}>
         <div className={personal__heading}>
           <h1>Image Gallery {isYear}</h1>
-        </div>
-        <div>
-          <div className={personal__stories}>
-            <h5></h5>
-          </div>
         </div>
         <Image.PreviewGroup>
           <div className={personal__img__container}>

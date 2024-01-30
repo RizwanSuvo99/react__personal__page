@@ -40,16 +40,16 @@ img {
 .personal__heading {
   color: #fff;
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  color: #fdfdfd;
+  text-shadow: -2px 0 8px #000000, -2px 0 8px #000000;
+  letter-spacing: 1px;
+  padding: 2rem;
   @media (max-width: 500px) {
     & {
       font-size: 1.5rem;
     }
   }
-}
-
-.personal__stories{
-  
 }
 
 .personal__img__container {
