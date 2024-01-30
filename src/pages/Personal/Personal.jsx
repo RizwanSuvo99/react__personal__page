@@ -17,14 +17,19 @@ const Personal = () => {
     imageGallery.filter((images) => images.yearClicked === yearArr[0])
   );
   const [isYear, setIsYear] = useState(yearArr[0]);
+  const [isGalleryShown, setIsGalleryShown] = useState(false);
+  const selectedYear = storiesData.find((story) => story.year === isYear);
 
   const handleYear = (year) => {
-    const filteredImg = imageGallery.filter((img) => img.yearClicked == year);
-    setImgData(filteredImg);
     setIsYear(year);
+    setIsGalleryShown(false);
   };
 
-  const selectedYear = storiesData.find((story) => story.year === isYear);
+  const handleGalleryClick = () => {
+    const filteredImg = imageGallery.filter((img) => img.yearClicked == isYear);
+    setImgData(filteredImg);
+    setIsGalleryShown(true);
+  };
 
   const bgImg = {
     width: "100%",
@@ -42,31 +47,34 @@ const Personal = () => {
         <div className={personal__heading}>
           <h1>Image Gallery {isYear}</h1>
         </div>
-        <div className={personal__story}>
-          <div>
-            <h4>{selectedYear.storyLines}</h4>
-            <button>Explore Gallery</button>
+        {isGalleryShown ? (
+          <Image.PreviewGroup>
+            <div className={personal__img__container}>
+              {imgData.map((img) => (
+                <div key={img.id}>
+                  <Image
+                    height={`${
+                      Math.floor(Math.random() * (500 - 250 + 1)) + 250
+                    }px`}
+                    src={img.imgUrl}
+                    preview={{
+                      src: img.imgUrl,
+                    }}
+                    alt={img.imgDetails}
+                  />
+                  <p style={{ pointerEvents: "none" }}>{img.imgDetails}</p>
+                </div>
+              ))}
+            </div>
+          </Image.PreviewGroup>
+        ) : (
+          <div className={personal__story} onClick={handleGalleryClick}>
+            <div>
+              <h4>{selectedYear.storyLines}</h4>
+              <button>Explore Gallery</button>
+            </div>
           </div>
-        </div>
-        {/* <Image.PreviewGroup>
-          <div className={personal__img__container}>
-            {imgData.map((img) => (
-              <div key={img.id}>
-                <Image
-                  height={`${
-                    Math.floor(Math.random() * (500 - 250 + 1)) + 250
-                  }px`}
-                  src={img.imgUrl}
-                  preview={{
-                    src: img.imgUrl,
-                  }}
-                  alt={img.imgDetails}
-                />
-                <p style={{ pointerEvents: "none" }}>{img.imgDetails}</p>
-              </div>
-            ))}
-          </div>
-        </Image.PreviewGroup> */}
+        )}
       </div>
       <div className={personal__timeline}>
         <ul>

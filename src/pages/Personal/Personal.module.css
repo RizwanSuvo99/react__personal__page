@@ -60,6 +60,7 @@ img {
     background-color: #242831;
     color: #e9b722;
     font-size: 2rem;
+    text-align: justify;
     padding: 4rem 4rem 2rem 4rem;
     display: flex;
     flex-direction: column;
