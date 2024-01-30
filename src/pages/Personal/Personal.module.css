@@ -41,17 +41,11 @@ img {
 .personal__heading {
   color: #fff;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: clamp(1.4rem, 3vw, 2.5rem);
   color: #fdfdfd;
   text-shadow: -2px 0 8px #000000, -2px 0 8px #000000;
   letter-spacing: 1px;
   margin-block: 2rem;
-
-  @media (max-width: 500px) {
-    & {
-      font-size: 1.5rem;
-    }
-  }
 }
 
 .personal__story {
@@ -59,25 +53,32 @@ img {
   div {
     background-color: #242831;
     color: #e9b722;
-    font-size: 2rem;
-    text-align: justify;
-    padding: 4rem 4rem 2rem 4rem;
+    font-size: clamp(1rem, 3vw, 2rem);
+    text-align: center;
+    padding: clamp(2rem, 3vw, 4rem) clamp(2rem, 3vw, 4rem)
+      clamp(1rem, 3vw, 2rem) clamp(2rem, 3vw, 4rem);
+    display: flex;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 80%;
+    max-width: 90%;
     margin: 0 auto;
     border-radius: 1rem;
+    @media (max-width: 600px) {
+      & {
+        max-width: 95%;
+      }
+    }
   }
   button {
-    margin-top: 2rem;
+    margin-top: clamp(1rem, 3vw, 2rem);
     border: none;
     outline: none;
     display: block;
-    font-size: 1.4rem;
+    font-size: clamp(1rem, 3vw, 1.4rem);
     border-radius: 2rem;
-    padding: 1rem 4rem;
+    padding: clamp(0.3rem, 3vw, 1rem) clamp(1.2rem, 3vw, 4rem);
     border: 2px solid transparent;
     cursor: pointer;
     transition: 0.3s all ease;
