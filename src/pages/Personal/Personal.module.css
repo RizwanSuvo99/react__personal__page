@@ -50,8 +50,9 @@ img {
 
 .personal__story {
   backdrop-filter: blur(10px);
+  animation: moveInLeft 1s ease;
   div {
-    background-color: #242831;
+    background-color: rgba(36, 40, 49, 0.4);
     color: #e9b722;
     font-size: clamp(1rem, 3vw, 2rem);
     text-align: center;
@@ -78,6 +79,8 @@ img {
     display: block;
     font-size: clamp(1rem, 3vw, 1.4rem);
     border-radius: 2rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
     padding: clamp(0.3rem, 3vw, 1rem) clamp(1.2rem, 3vw, 4rem);
     border: 2px solid transparent;
     cursor: pointer;
@@ -94,10 +97,9 @@ img {
 .personal__img__container {
   max-width: 1550px;
   columns: 4;
-  column-gap: 20px;
+  column-gap:10px;
   backdrop-filter: blur(10px);
   margin-inline: auto;
-  padding-bottom: 2rem;
   @media (max-width: 1850px) {
     & {
       padding: 2rem;
@@ -122,16 +124,14 @@ img {
     }
   }
 
-  & > div {
+  div {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     break-inside: avoid;
     overflow: hidden;
     position: relative;
     cursor: pointer;
     object-fit: cover;
-    border: 2px solid #fff;
-    padding: 1rem;
     transition: 0.6s all ease;
   }
 
@@ -142,11 +142,12 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 15px;
     transition: 0.6s all ease;
   }
 
   div:hover img {
-    scale: 1.5;
+    scale: 1.4;
   }
 
   div p {
@@ -219,5 +220,16 @@ img {
 @media (max-width: 500px) {
   .personal__timeline ul > li::before {
     left: -1.6rem;
+  }
+}
+
+@keyframes moveInLeft {
+  0% {
+    transform: translateX(-3rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
