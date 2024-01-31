@@ -33,7 +33,7 @@ img {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
   background-blend-mode: overlay;
 }
 
@@ -60,8 +60,8 @@ img {
     color: #e9b722;
     font-size: clamp(1rem, 3vw, 2rem);
     text-align: center;
-    padding: clamp(2rem, 3vw, 4rem) clamp(2rem, 3vw, 4rem)
-      clamp(1rem, 3vw, 2rem) clamp(2rem, 3vw, 4rem);
+    padding: clamp(2rem, 3vw, 4rem) clamp(1rem, 3vw, 4rem)
+      clamp(1rem, 3vw, 2rem) clamp(1rem, 3vw, 4rem);
     display: flex;
     display: flex;
     flex-direction: column;
