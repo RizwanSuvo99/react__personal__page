@@ -7,10 +7,13 @@ import {
   personal__img__container,
   personal__timeline,
   personal__story,
+  animate__left,
 } from "./Personal.module.css";
 import { Image } from "antd";
 import yearArr from "../../utils/yearArr";
 import { storiesData } from "../../utils/storiesData";
+import PersonalImg from "../../components/PersonalImg/PersonalImg";
+import PersonalStory from "../../components/PersonalStory/PersonalStory";
 
 const Personal = () => {
   const [imgData, setImgData] = useState(
@@ -23,26 +26,21 @@ const Personal = () => {
   const handleYear = (year) => {
     setIsYear(year);
     setIsGalleryShown(false);
+    const filteredImg = imageGallery.filter((img) => img.yearClicked == year);
+    setImgData(filteredImg);
   };
 
   const handleGalleryClick = () => {
+    setIsGalleryShown(true);
     const filteredImg = imageGallery.filter((img) => img.yearClicked == isYear);
     setImgData(filteredImg);
-    setIsGalleryShown(true);
-  };
-
-  const bgImg = {
-    width: "100%",
-    backgroundImage: `url(${imgData[0].imgUrl})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundColor: "rgba(0,0,0,0.5)",
-    backgroundBlendMode: "overlay",
   };
 
   return (
-    <section className={personal} style={bgImg}>
+    <section
+      className={personal}
+      style={{ backgroundImage: `url(${imgData[0].imgUrl})` }}
+    >
       <div className={personal__img}>
         <div className={personal__heading}>
           <h1>Image Gallery {isYear}</h1>
@@ -51,29 +49,17 @@ const Personal = () => {
           <Image.PreviewGroup>
             <div className={personal__img__container}>
               {imgData.map((img) => (
-                <div key={img.id}>
-                  <Image
-                    height={`${
-                      Math.floor(Math.random() * (500 - 250 + 1)) + 250
-                    }px`}
-                    src={img.imgUrl}
-                    preview={{
-                      src: img.imgUrl,
-                    }}
-                    alt={img.imgDetails}
-                  />
-                  <p style={{ pointerEvents: "none" }}>{img.imgDetails}</p>
-                </div>
+                <PersonalImg key={img.id} img={img} />
               ))}
             </div>
           </Image.PreviewGroup>
         ) : (
-          <div className={personal__story}>
-            <div>
-              <h4>{selectedYear.storyLines}</h4>
-              <button onClick={handleGalleryClick}>Explore Gallery</button>
-            </div>
-          </div>
+          <PersonalStory
+            selectedYear={selectedYear}
+            handleGalleryClick={handleGalleryClick}
+            personal__story={personal__story}
+            animate__left={animate__left}
+          />
         )}
       </div>
       <div className={personal__timeline}>

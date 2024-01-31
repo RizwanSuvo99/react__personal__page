@@ -30,6 +30,11 @@ img {
   grid-template-columns: repeat(7, 1fr);
   justify-content: center;
   align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-blend-mode: overlay;
 }
 
 .personal__img {
@@ -50,7 +55,6 @@ img {
 
 .personal__story {
   backdrop-filter: blur(10px);
-  animation: moveInLeft 1s ease;
   div {
     background-color: rgba(36, 40, 49, 0.4);
     color: #e9b722;
@@ -94,10 +98,14 @@ img {
   }
 }
 
+.animate__left {
+  animation: moveInLeft 1s ease;
+}
+
 .personal__img__container {
   max-width: 1550px;
   columns: 4;
-  column-gap:10px;
+  column-gap: 10px;
   backdrop-filter: blur(10px);
   margin-inline: auto;
   @media (max-width: 1850px) {
@@ -225,7 +233,7 @@ img {
 
 @keyframes moveInLeft {
   0% {
-    transform: translateX(-3rem);
+    transform: translateX(-10rem);
     opacity: 0;
   }
   100% {
