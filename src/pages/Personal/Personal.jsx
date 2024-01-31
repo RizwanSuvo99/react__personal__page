@@ -7,7 +7,6 @@ import {
   personal__img__container,
   personal__timeline,
   personal__story,
-  animate__left,
 } from "./Personal.module.css";
 import { Image } from "antd";
 import yearArr from "../../utils/yearArr";
@@ -24,16 +23,14 @@ const Personal = () => {
   const selectedYear = storiesData.find((story) => story.year === isYear);
 
   const handleYear = (year) => {
-    setIsYear(year);
-    setIsGalleryShown(false);
     const filteredImg = imageGallery.filter((img) => img.yearClicked == year);
     setImgData(filteredImg);
+    setIsYear(year);
+    setIsGalleryShown(false);
   };
 
   const handleGalleryClick = () => {
     setIsGalleryShown(true);
-    const filteredImg = imageGallery.filter((img) => img.yearClicked == isYear);
-    setImgData(filteredImg);
   };
 
   return (
@@ -58,7 +55,6 @@ const Personal = () => {
             selectedYear={selectedYear}
             handleGalleryClick={handleGalleryClick}
             personal__story={personal__story}
-            animate__left={animate__left}
           />
         )}
       </div>

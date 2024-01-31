@@ -3,10 +3,9 @@ const PersonalStory = ({
   selectedYear,
   handleGalleryClick,
   personal__story,
-  animate__left,
 }) => {
   return (
-    <div className={`${personal__story} ${animate__left}`}>
+    <div className={personal__story}>
       <div>
         <h4>{selectedYear.storyLines}</h4>
         <button onClick={handleGalleryClick}>Explore Gallery</button>

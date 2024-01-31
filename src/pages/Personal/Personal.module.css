@@ -98,10 +98,6 @@ img {
   }
 }
 
-.animate__left {
-  animation: moveInLeft 1s ease;
-}
-
 .personal__img__container {
   max-width: 1550px;
   columns: 4;
@@ -228,16 +224,5 @@ img {
 @media (max-width: 500px) {
   .personal__timeline ul > li::before {
     left: -1.6rem;
-  }
-}
-
-@keyframes moveInLeft {
-  0% {
-    transform: translateX(-10rem);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
   }
 }
