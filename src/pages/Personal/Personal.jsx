@@ -41,7 +41,7 @@ const Personal = () => {
     personalStoryRef.current.classList.add(animate_left);
     setTimeout(() => {
       personalStoryRef.current.classList.remove(animate_left);
-    }, 500);
+    }, 600);
   }
 
   useEffect(animatePersonalStory, []);

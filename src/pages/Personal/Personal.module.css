@@ -63,7 +63,7 @@ img {
 }
 
 .animate_left {
-  animation: moveFromLeft 1s ease;
+  animation: moveFromLeft .6s ease;
 }
 
 .personal__story {
