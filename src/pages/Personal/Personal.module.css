@@ -53,8 +53,22 @@ img {
   margin-block: 2rem;
 }
 
+@keyframes moveFromLeft {
+  0% {
+    transform: translateX(-10rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate_left {
+  animation: moveFromLeft 1s ease;
+}
+
 .personal__story {
   backdrop-filter: blur(10px);
+  /* animation: moveFromLeft 1s ease; */
   div {
     background-color: rgba(36, 40, 49, 0.4);
     color: #e9b722;
