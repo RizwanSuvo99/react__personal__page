@@ -56,14 +56,16 @@ img {
 @keyframes moveFromLeft {
   0% {
     transform: translateX(-10rem);
+    opacity: 0;
   }
   100% {
     transform: translateX(0);
+    opacity: 1;
   }
 }
 
 .animate_left {
-  animation: moveFromLeft .6s ease;
+  animation: moveFromLeft 0.6s ease;
 }
 
 .personal__story {
